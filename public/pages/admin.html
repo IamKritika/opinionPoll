@@ -1,0 +1,39 @@
+<!-- contact.html -->
+<h1> Hiee Admin !! </h1>
+<div ng-show="questionnaireCreate">
+<p> Question </p>
+<input type="text" class="form-control input-lg text-center" placeholder="Type your question here" ng-model="question.text">
+<p> Answer Options </p>
+<input type="text" class="form-control input-lg text-center" placeholder="Type your first option here" ng-model="option.one">
+<input type="text" class="form-control input-lg text-center" placeholder="Type your second option here" ng-model="option.two">
+<input type="text" class="form-control input-lg text-center" placeholder="Type your third option here" ng-model="option.three">
+<input type="text" class="form-control input-lg text-center" placeholder="Type your fourth option here" ng-model="option.four">
+  <button type="submit" class="btn btn-primary btn-lg" ng-click="createquestion()">Add more questions</button> 
+ <button type="submit" class="btn btn-primary btn-lg" ng-click="submitQuestionnaire()">Submit questionnaire</button>    
+	</div>
+	<div ng-show="initialScreen">
+	<button type="submit" class="btn btn-primary btn-lg" ng-click="createQuestionnaireTitle()">Create questionnaire</button>
+	<button type="submit" class="btn btn-primary btn-lg" ng-click="viewQuestionnaire()">View questionnaire</button>
+</div>
+<div ng-show="questionnaireView">
+	<div ng-repeat = "quesAns in qaObj">
+	 <h1>{{quesAns.questionnaireID }}</h1>
+	  <h1>{{quesAns.questionnaireTitle}}</h1>
+	 
+	<div ng-repeat = "check in quesAns.qa">
+        <h1>{{check.question}}</h1>
+		<ul>
+		<li>{{check.answers.one}}</li>
+		<li>{{check.answers.two}}</li>
+		<li>{{check.answers.three}}</li>
+		<li>{{check.answers.four}}</li>
+		</ul>	 
+    </div>
+</div>
+</div>
+
+<div ng-show="questionnaireTitle">
+<p> Questionnaire Title </p>
+<input type="text" class="form-control input-lg text-center" placeholder="Type your title here" ng-model="quesTitle">
+<button type="submit" class="btn btn-primary btn-lg" ng-click="createQuestionnaire()">Next</button>
+</div>
